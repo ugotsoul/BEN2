@@ -1,17 +1,4 @@
----
-license: mit
-pipeline_tag: image-segmentation
-tags:
-- BEN2
-- background-remove
-- mask-generation
-- Dichotomous image segmentation
-- background remove
-- foreground
-- background
-- remove background
-- pytorch
----
+
 
 # BEN2: Background Erase Network
 
