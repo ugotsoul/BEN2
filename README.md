@@ -23,6 +23,9 @@ BEN2 was trained on the DIS5k and our 22K proprietary segmentation dataset. Our 
 - Our website: https://prama.llc/
 - Follow us on X: https://x.com/PramaResearch/
 
+##Download weights
+You can find the weights to BEN2 base from our Huggingface: https://huggingface.co/PramaLLC/BEN2
+
 
 ## Quick start code (inside cloned repo)
 
