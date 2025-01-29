@@ -11,7 +11,7 @@ model = BEN2.BEN_Base().to(device).eval() #init pipeline
 
 model.loadcheckpoints("./BEN2_Base.pth")
 image = Image.open(file)
-mask, foreground = model.inference(image)
+foreground = model.inference(image)
 
-mask.save("./mask.png")
+
 foreground.save("./foreground.png")
