@@ -124,7 +124,7 @@ model.segment_video(
 
 
 
-##BEN2 evaluation
+## BEN2 evaluation
 ![Model Comparison](BEN2_demo_pictures/model_comparison.png)
 
 RMBG 2.0 did not preserve the DIS 5k validation dataset
