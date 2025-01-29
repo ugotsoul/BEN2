@@ -81,7 +81,7 @@ foregrounds[1].save("./foreground2.png")
 
 
 
-# BEN2 video segmentation
+## BEN2 video segmentation
 [![BEN2 Demo](https://img.youtube.com/vi/skEXiIHQcys/0.jpg)](https://www.youtube.com/watch?v=skEXiIHQcys)
 
 ## Video Segmentation
@@ -124,7 +124,7 @@ model.segment_video(
 
 
 
-**# BEN2 evaluation**
+##BEN2 evaluation
 ![Model Comparison](BEN2_demo_pictures/model_comparison.png)
 
 RMBG 2.0 did not preserve the DIS 5k validation dataset
@@ -139,4 +139,3 @@ RMBG 2.0 did not preserve the DIS 5k validation dataset
 ## Installation
 1. Clone Repo
 2. Install requirements.txt
-# BEN2
