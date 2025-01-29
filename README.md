@@ -41,7 +41,7 @@ file = "./image.png" # input image
 
 model = model.BEN_Base().to(device).eval() #init pipeline
 
-model.loadcheckpoints("./BEN_Base2.pth")
+model.loadcheckpoints("./BEN2_Base.pth")
 image = Image.open(file)
 foreground = model.inference(image, refine_foreground=False,) #Refine foreground is an extract postprocessing step that increases inference time but can improve matting edges. The default value is False.
 
@@ -64,7 +64,7 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 model = model.BEN_Base().to(device).eval() #init pipeline
 
-model.loadcheckpoints("./BEN_Base2.pth")
+model.loadcheckpoints("./BEN2_Base.pth")
 
 file1 = "./image1.png" # input image1
 file2 = "./image2.png" # input image2
@@ -103,7 +103,7 @@ file = "./image.png" # input image
 
 model = model.BEN_Base().to(device).eval() #init pipeline
 
-model.loadcheckpoints("./BEN_Base2.pth")
+model.loadcheckpoints("./BEN2_Base.pth")
 
 
 
