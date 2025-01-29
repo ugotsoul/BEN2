@@ -30,7 +30,7 @@ You can find the weights to BEN2 base from our Huggingface: https://huggingface.
 ## Quick start code (inside cloned repo)
 
 ```python
-import model
+import BEN2
 from PIL import Image
 import torch
 
@@ -39,7 +39,7 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 file = "./image.png" # input image
 
-model = model.BEN_Base().to(device).eval() #init pipeline
+model = BEN2.BEN_Base().to(device).eval() #init pipeline
 
 model.loadcheckpoints("./BEN2_Base.pth")
 image = Image.open(file)
@@ -53,7 +53,7 @@ foreground.save("./foreground.png")
 ## Batch image processing
 
 ```python
-import model
+import BEN2
 from PIL import Image
 import torch
 
@@ -62,7 +62,7 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 
 
-model = model.BEN_Base().to(device).eval() #init pipeline
+model = BEN2.BEN_Base().to(device).eval() #init pipeline
 
 model.loadcheckpoints("./BEN2_Base.pth")
 
@@ -92,7 +92,7 @@ sudo apt install ffmpeg
 ```
 
 ```python
-import model
+import BEN2
 from PIL import Image
 import torch
 
@@ -101,7 +101,7 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 file = "./image.png" # input image
 
-model = model.BEN_Base().to(device).eval() #init pipeline
+model = BEN2.BEN_Base().to(device).eval() #init pipeline
 
 model.loadcheckpoints("./BEN2_Base.pth")
 
