@@ -1025,7 +1025,7 @@ class BEN_Base(nn.Module):
                 alpha = postprocess_image(res, im_size=[w,h])
                 pred_pil = transforms.ToPILImage()(alpha)
                 mask = pred_pil.resize(original_image.size)
-                foreground = original_image.putalpha(mask)
+                original_image.putalpha(mask)
                 # mask = Image.fromarray(alpha)
 
                 return foreground
