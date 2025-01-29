@@ -9,7 +9,7 @@ file = "./image.png" # input image
 
 model = BEN2.BEN_Base().to(device).eval() #init pipeline
 
-model.loadcheckpoints("./BEN_Base2.pth")
+model.loadcheckpoints("./BEN2_Base.pth")
 image = Image.open(file)
 mask, foreground = model.inference(image)
 
