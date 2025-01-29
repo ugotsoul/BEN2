@@ -921,6 +921,8 @@ class BEN_Base(nn.Module):
             if isinstance(m, nn.GELU) or isinstance(m, nn.Dropout):
                 m.inplace = True
 
+    
+
     @torch.inference_mode()
     @torch.autocast(device_type="cuda",dtype=torch.float16)
     def forward(self, x):
@@ -1008,7 +1010,13 @@ class BEN_Base(nn.Module):
         # image = ImageOps.exif_transpose(image)
         if isinstance(image, Image.Image):            
             image, h, w,original_image =  rgb_loader_refiner(image)
-            img_tensor = img_transform(image).unsqueeze(0).to(next(self.parameters()).device)
+            if torch.cuda.is_available():
+
+                img_tensor = img_transform(image).unsqueeze(0).to(next(self.parameters()).device)
+            else:
+                img_tensor = img_transform32(image).unsqueeze(0).to(next(self.parameters()).device)
+
+            
             with torch.no_grad():
                 res = self.forward(img_tensor)
 
@@ -1035,7 +1043,11 @@ class BEN_Base(nn.Module):
             foregrounds = []
             for batch in image:
                 image, h, w,original_image =  rgb_loader_refiner(batch)
-                img_tensor = img_transform(image).unsqueeze(0).to(next(self.parameters()).device)
+                if torch.cuda.is_available():
+
+                    img_tensor = img_transform(image).unsqueeze(0).to(next(self.parameters()).device)
+                else:
+                    img_tensor = img_transform32(image).unsqueeze(0).to(next(self.parameters()).device)
 
                 with torch.no_grad():
                     res = self.forward(img_tensor)
@@ -1057,6 +1069,9 @@ class BEN_Base(nn.Module):
                     foregrounds.append(original_image)
 
             return foregrounds
+
+
+
 
     def segment_video(self, video_path, output_path="./", fps=0, refine_foreground=False, batch=1, print_frames_processed=True, webm = False, rgb_value= (0, 255, 0)):
     
@@ -1195,6 +1210,13 @@ img_transform = transforms.Compose([
     transforms.ConvertImageDtype(torch.float16), 
     transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
 ])
+
+img_transform32 = transforms.Compose([
+    transforms.ToTensor(),
+    transforms.ConvertImageDtype(torch.float32), 
+    transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+])
+
 
 
 
@@ -1361,6 +1383,8 @@ def postprocess_image(result: torch.Tensor, im_size: list) -> np.ndarray:
 def rgb_loader_refiner( original_image):
         h, w = original_image.size
         # # Apply EXIF orientation
+
+        image = ImageOps.exif_transpose(original_image)
 
         if original_image.mode != 'RGB':
             original_image = original_image.convert('RGB')
