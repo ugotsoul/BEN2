@@ -1028,7 +1028,7 @@ class BEN_Base(nn.Module):
                 original_image.putalpha(mask)
                 # mask = Image.fromarray(alpha)
 
-                return foreground
+                return original_image
 
 
         else:
