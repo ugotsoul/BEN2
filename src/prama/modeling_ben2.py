@@ -8,7 +8,6 @@ import numpy as np
 from timm.layers import DropPath, to_2tuple, trunc_normal_
 from PIL import Image, ImageOps
 from torchvision import transforms
-import numpy as np
 import random
 import cv2
 import os
