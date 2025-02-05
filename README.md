@@ -34,7 +34,7 @@ pip install git+https://github.com.PramaLLC/BEN2.git
 ```
 ```python
 import torch
-from BEN2 import AutoModel
+from ben2 import AutoModel
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
