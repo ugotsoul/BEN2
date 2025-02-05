@@ -27,6 +27,22 @@ BEN2 was trained on the DIS5k and our 22K proprietary segmentation dataset. Our 
 You can find the weights to BEN2 base from our Huggingface: https://huggingface.co/PramaLLC/BEN2
 
 
+## Using prama
+
+```
+pip install git+https://github.com.PramaLLC/BEN2.git
+```
+```python
+import torch
+from prama import AutoModel
+
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+
+model = AutoModel.from_pretrained("[repo_id]")
+model.to(device).eval()
+foreground = model.inference(img)
+```
+
 ## Quick start code (inside cloned repo)
 
 ```python
