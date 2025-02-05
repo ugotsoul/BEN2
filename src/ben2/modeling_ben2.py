@@ -1014,7 +1014,7 @@ class MCRM(nn.Module):
 class BEN_Base(
     nn.Module,
     PyTorchModelHubMixin,
-    library_name="prama",  # lower case library name
+    library_name="ben2",  # lower case library name
     repo_url="https://github.com/PramaLLC/BEN2",
     tags=[
         "background-remove",

@@ -4,7 +4,7 @@ from setuptools import find_packages
 
 
 def get_version() -> str:
-    rel_path = "src/prama/__init__.py"
+    rel_path = "src/ben2/__init__.py"
     with open(rel_path, "r") as fp:
         for line in fp.read().splitlines():
             if line.startswith("__version__"):
@@ -22,11 +22,11 @@ with open("requirements.txt", "r", encoding="utf-8") as f:
 
 
 setuptools.setup(
-    name="prama",
+    name="ben2",
     version=get_version(),
     author="person",
     author_email="email@gmail.com",
-    description="A package for prama",
+    description="A package for BEN2",
     long_description=pathlib.Path("README.md").read_text(encoding="utf-8"),
     long_description_content_type="text/markdown",
     url="https://github.com/PramaLLC/BEN2",
