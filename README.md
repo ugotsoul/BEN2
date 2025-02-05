@@ -30,7 +30,7 @@ You can find the weights to BEN2 base from our Huggingface: https://huggingface.
 ## Using ben2
 
 ```
-pip install git+https://github.com.PramaLLC/BEN2.git
+pip install git+https://github.com/PramaLLC/BEN2.git
 ```
 ```python
 import torch
