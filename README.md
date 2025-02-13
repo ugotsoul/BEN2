@@ -145,6 +145,9 @@ model.segment_video(
 
 ```
 
+## ONNX support 
+You can find the ONNX weights to BEN2 base from our [Huggingface](https://huggingface.co/PramaLLC/BEN2/blob/main/BEN2_Base.onnx) and the inference code [here](https://huggingface.co/PramaLLC/BEN2/blob/main/onnx_run.py).
+
 
 
 ## BEN2 evaluation
